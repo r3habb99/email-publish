@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{subject}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin: 15px 0;
+            font-size: 16px;
+            color: #333333;
+        }
+
+        .advertisement img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 20px 0;
+            background-color: #28a745;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 15px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 0 0 10px 10px;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>{{title}}</h1>
+        </div>
+        <div class="content">
+            <div class="advertisement">
+                <img src="cid:advertisementImage" alt="Advertisement Image">
+            </div>
+            <p>{{message}}</p>
+            <a href="{{buttonLink}}" class="button">{{buttonText}}</a>
+        </div>
+        <div class="footer">
+            <p>Thank you for choosing our service!</p>
+            <p>&copy; {{year}} Rishabh Firm. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
