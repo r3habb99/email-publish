@@ -36,9 +36,8 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.post('/send-email', upload.array('attachments'), async (req, res) => {
-  const { recipients, subject, title, message, buttonLink, buttonText } =
-    req.body;
+app.post('/send-email', upload.array('attachments', 2), async (req, res) => {
+  const { recipients, subject, message, buttonLink, buttonText } = req.body;
   const attachments = req.files; // req.files contains the array of attachments
 
   const recipientList = recipients.split(',').map((email) => email.trim());
@@ -51,7 +50,6 @@ app.post('/send-email', upload.array('attachments'), async (req, res) => {
   try {
     const replacements = {
       subject,
-      title,
       message,
       buttonLink,
       buttonText,
