@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 app.post('/send-email', upload.array('attachments'), async (req, res) => {
   const { recipients, subject, title, message, buttonLink, buttonText } =
     req.body;
-  const attachments = req.files;
+  const attachments = req.files; // req.files contains the array of attachments
 
   const recipientList = recipients.split(',').map((email) => email.trim());
 
@@ -57,11 +57,14 @@ app.post('/send-email', upload.array('attachments'), async (req, res) => {
       buttonText,
       year: new Date().getFullYear(),
     };
+
+    // Assuming sendMail function sends email with attachments
     await Promise.all(
       recipientList.map((email) =>
         sendMail(email, subject, replacements, attachmentList)
       )
     );
+
     logger.info('Emails sent successfully');
     res.status(200).send('Emails sent successfully');
   } catch (error) {
@@ -71,5 +74,5 @@ app.post('/send-email', upload.array('attachments'), async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  logger.info(`Server is running on port ${PORT}`);
+  logger.info(`Server is running on http://localhost:${PORT}`);
 });
