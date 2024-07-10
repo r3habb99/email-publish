@@ -35,14 +35,7 @@ const sendMail = async (to, subject, replacements, attachments) => {
     to,
     subject,
     html: htmlToSend,
-    attachments: [
-      {
-        filename: 'advertise.jpg',
-        path: path.join(__dirname, 'uploads', 'advertise.jpg'),
-        cid: 'advertisementImage', // same cid value as in the html img src
-      },
-      ...attachments, // Other attachments if any
-    ],
+    attachments,
   };
 
   try {

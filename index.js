@@ -41,18 +41,6 @@ app.post('/send-email', upload.array('attachments'), async (req, res) => {
     req.body;
   const attachments = req.files;
 
-  if (
-    !recipients ||
-    !subject ||
-    !title ||
-    !message ||
-    !buttonLink ||
-    !buttonText
-  ) {
-    logger.error('Missing required fields');
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-
   const recipientList = recipients.split(',').map((email) => email.trim());
 
   const attachmentList = attachments.map((file) => ({
