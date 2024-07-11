@@ -75,7 +75,7 @@ textarea {
 
 button {
     background-color: var(--primary-color);
-        color: var(--container-background);
+    color: var(--container-background);
     cursor: pointer;
     font-size: 18px;
     margin-top: 20px;
@@ -100,7 +100,6 @@ input[type="file"] {
 
 .success,
 .error {
-    display: none;
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 4px;

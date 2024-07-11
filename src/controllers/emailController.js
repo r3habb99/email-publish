@@ -28,10 +28,13 @@ const sendEmail = async (req, res) => {
     );
 
     logger.info('Emails sent successfully');
-    res.status(200).send('Emails sent successfully');
+    const successMessage = 'Emails sent successfully!';
+    return res.render('index', { successMessage, errorMessage: null }); // Render index.ejs with successMessage
   } catch (error) {
     logger.error('Failed to send emails: ' + error.message);
-    res.status(500).json({ error: 'Failed to send emails' });
+    const errorMessage =
+      'Failed to send emails. Please check the logs for more details.';
+    return res.render('index', { successMessage: null, errorMessage }); // Render index.ejs with errorMessage
   }
 };
 
