@@ -116,3 +116,37 @@ input[type="file"] {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
+@media (max-width: 768px) {
+
+    /* Styles for screens smaller than 768px */
+    .container {
+        max-width: 90%;
+        /* Adjust container width for smaller screens */
+    }
+
+    h1 {
+        font-size: 20px;
+        /* Adjust heading size */
+    }
+
+    input,
+    textarea,
+    button {
+        font-size: 14px;
+        /* Adjust font size for better readability */
+    }
+}
+
+@media (max-width: 375px) {
+
+    /* Styles for screens smaller than 375px */
+    .container {
+        padding: 20px;
+        /* Adjust padding for even smaller screens */
+    }
+
+    button {
+        padding: 10px 15px;
+        /* Adjust button size */
+    }
+}
