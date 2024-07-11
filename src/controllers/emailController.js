@@ -15,7 +15,7 @@ const sendEmail = async (req, res) => {
   try {
     const replacements = {
       subject,
-      message,
+      message: message.replace(/\r\n|\r|\n/g, '<br>'), // Replace newlines with <br> for HTML formatting
       buttonLink,
       buttonText,
       year: new Date().getFullYear(),

@@ -4,18 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>{{subject}}</title>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="email-container">
         <div class="content">
-            <p>{{message}}</p>
-            <a href="{{buttonLink}}" class="button">{{buttonText}}</a>
+            <p>{{{message}}}</p> <!-- Use triple curly braces to render HTML content -->
+            {{#if buttonLink}}
+            <p>
+                <a href="{{buttonLink}}" class="button">{{buttonText}}</a>
+            </p>
+            {{/if}}
         </div>
         <div class="footer">
-            <p>Thank you for choosing our service!</p>
-            <p>&copy; {{year}} Rishabh Firm. All rights reserved.</p>
+            <p>© {{year}}</p>
         </div>
     </div>
 </body>

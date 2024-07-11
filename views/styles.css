@@ -1,29 +1,36 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #28a745;
+    --text-color: #333333;
+    --background-color: #f4f4f4;
+    --container-background: #ffffff;
+    --border-color: #dddddd;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-        /* Use min-height for better responsiveness */
 }
 
 .container {
     max-width: 600px;
     width: 100%;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: var(--container-background);
     padding: 30px;
-    border: 1px solid #dddddd;
+    border: 1px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
-    color: #007bff;
+    color: var(--primary-color);
     margin-bottom: 20px;
     font-size: 24px;
 }
@@ -48,7 +55,7 @@ textarea,
 button {
     width: 100%;
     padding: 10px;
-    border: 1px solid #dddddd;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
@@ -57,7 +64,7 @@ button {
 
 input:focus,
 textarea:focus {
-    border-color: #007bff;
+    border-color: var(--primary-color);
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
     outline: none;
 }
@@ -67,13 +74,12 @@ textarea {
 }
 
 button {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: var(--primary-color);
+        color: var(--container-background);
     cursor: pointer;
     font-size: 18px;
     margin-top: 20px;
     padding: 12px 20px;
-        /* Increase button padding for better look */
     transition: background-color 0.3s;
 }
 
@@ -88,14 +94,13 @@ button:active {
 input[type="file"] {
     padding: 3px;
     border: none;
-    background-color: #f4f4f4;
+    background-color: var(--background-color);
     cursor: pointer;
 }
-/* New styles for success message */
+
 .success,
 .error {
     display: none;
-    /* Initially hide the messages */
     margin-bottom: 15px;
     padding: 10px;
     border-radius: 4px;
