@@ -17,6 +17,7 @@ app.listen(PORT, () => {
   logger.info(`=================================`);
   logger.info(`🚀 App running on this port ${PORT}`);
   logger.info(`🎮 http://localhost:${PORT}`);
+  logger.info(`🎮 https://email-braodcast-service.onrender.com:${PORT}`);
   logger.info(`=================================`);
 });
 
