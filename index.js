@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const PROTOCOL = process.env.PROTOCOL || 'http://localhost';
 
 app.set('view engine', 'ejs');
 app.use(express.static('views'));
@@ -16,8 +17,8 @@ app.use('/', emailRoutes);
 app.listen(PORT, () => {
   logger.info(`=================================`);
   logger.info(`🚀 App running on this port ${PORT}`);
-  logger.info(`🎮 http://localhost:${PORT}`);
-  logger.info(`🎮 https://email-braodcast-service.onrender.com:${PORT}`);
+  logger.info(`🎮 ${PROTOCOL}:${PORT}`);
+  //logger.info(`🎮 https://email-braodcast-service.onrender.com`);
   logger.info(`=================================`);
 });
 
