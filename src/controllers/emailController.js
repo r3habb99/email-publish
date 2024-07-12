@@ -33,7 +33,7 @@ const sendEmail = async (req, res) => {
     // Store the success message in a cookie
     res.cookie('successMessage', successMessage, { path: '/' });
 
-    return res.render('index', { successMessage: null, errorMessage: null }); // Render index.ejs without messages
+    return res.redirect('/'); // Redirect to / route to show the message
   } catch (error) {
     logger.error('Failed to send emails: ' + error.message);
     const errorMessage =

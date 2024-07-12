@@ -10,17 +10,18 @@
 <body>
     <div class="container">
         <h1>Send Broadcast Email</h1>
-<% if (successMessage) { %>
-    <div class="success">
-        <%= successMessage %>
-    </div>
-    <% } %>
 
-        <% if (errorMessage) { %>
-            <div class="error">
-                <%= errorMessage %>
+        <% if (successMessage) { %>
+            <div class="success">
+                <%= successMessage %>
             </div>
             <% } %>
+
+                <% if (errorMessage) { %>
+                    <div class="error">
+                        <%= errorMessage %>
+                    </div>
+                    <% } %>
 
                         <form action="/send-email" method="post" enctype="multipart/form-data">
                             <div class="form-group">
@@ -56,15 +57,31 @@
                             <button type="submit">Send Email</button>
                         </form>
     </div>
-<% if (successMessage) { %>
+
     <script>
-        setTimeout(() => {
-            // Reload the page after 3 seconds and clear the successMessage
-            document.cookie = 'successMessage=; Max-Age=0; path=/';
-            window.location.reload();
-        }, 3000);
-    </script>
-    <% } %>
+            // Function to get a cookie by name
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+            }
+
+            // Check if the successMessage cookie is present
+            const successMessage = getCookie('successMessage');
+            if (successMessage) {
+                // Display the success message
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success';
+                successDiv.textContent = successMessage;
+                document.querySelector('.container').insertBefore(successDiv, document.querySelector('form'));
+
+            // Remove the successMessage cookie and reload the page after 3 seconds
+            setTimeout(() => {
+                document.cookie = 'successMessage=; Max-Age=0; path=/';
+                window.location.reload();
+            }, 3000);
+        }
+</script>
 </body>
 
 </html>
