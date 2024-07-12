@@ -14,14 +14,14 @@
         <% if (successMessage) { %>
             <div class="success">
                 <%= successMessage %>
-                    <button class="close-btn" onclick="removeMessage(this)">×</button>
+                    <button class="close-btn close" onclick="removeMessage(this)">×</button>
             </div>
             <% } %>
 
                 <% if (errorMessage) { %>
                     <div class="error">
                         <%= errorMessage %>
-                            <button class="close-btn" onclick="removeMessage(this)">×</button>
+                            <button class="close-btn close" onclick="removeMessage(this)">×</button>
                     </div>
                     <% } %>
 

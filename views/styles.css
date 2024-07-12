@@ -122,10 +122,9 @@ input[type="file"] {
     border: 1px solid #f5c6cb;
 }
 .close-btn {
-    position: relative;
-    top: 11%;
-    left: 270px;
-    transform: translateY(-120%);
+position: absolute;
+    top: 13%;
+    left: 530px;
     background: none;
     cursor: pointer;
     font-size: 20px;
@@ -135,6 +134,24 @@ input[type="file"] {
     transition: opacity 0.3s, color 0.3s;
 }
 
+.close {
+    width: 5px;
+    height: 5px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: relative;
+    align-content: center;
+    top: -42px;
+    color: #080808;
+    background: none;
+    opacity: 1;
+    border: none;
+}
+
+.close:hover {
+    background: none;
+}
 .close-btn:hover {
     opacity: 1;
     color: #ff0000;
