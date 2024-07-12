@@ -18,11 +18,8 @@ if (successMessage) {
     .querySelector('.container')
     .insertBefore(successDiv, document.querySelector('form'));
 
-  // Remove the successMessage cookie and reload the page after 3 seconds
-  setTimeout(() => {
-    document.cookie = 'successMessage=; Max-Age=0; path=/';
-    window.location.reload();
-  }, 3000);
+  // Remove the successMessage cookie after displaying it
+  document.cookie = 'successMessage=; Max-Age=0; path=/';
 }
 
 // Function to remove the message

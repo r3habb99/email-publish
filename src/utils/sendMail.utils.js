@@ -1,6 +1,6 @@
-const transporter = require('../config/transporter');
-const getTemplate = require('./emailTemplates');
-const logger = require('./logger');
+const transporter = require('../config/transporter.config');
+const getTemplate = require('./emailTemplates.utils');
+const logger = require('./logger.utils');
 
 const sendMail = async (to, subject, replacements, attachments) => {
   const htmlToSend = getTemplate('email', replacements);

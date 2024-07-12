@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const emailRoutes = require('./src/routes/email.routes');
-const logger = require('./src/utils/logger');
+const logger = require('./src/utils/logger.utils');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 

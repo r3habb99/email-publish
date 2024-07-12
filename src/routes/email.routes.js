@@ -1,6 +1,7 @@
 const express = require('express');
-const uploadMiddleware = require('../config/multerConfig');
+const uploadMiddleware = require('../config/multer.config');
 const emailController = require('../controllers/emailController');
+const validateEmailData = require('../middlewares/validation.middleware');
 
 const router = express.Router();
 
@@ -10,7 +11,11 @@ router.get('/', (req, res) => {
   res.render('index', { successMessage, errorMessage: null });
 });
 
-
-router.post('/send-email', uploadMiddleware, emailController.sendEmail);
+router.post(
+  '/send-email',
+  uploadMiddleware,
+  validateEmailData,
+  emailController.sendEmail
+);
 
 module.exports = router;
