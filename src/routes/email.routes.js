@@ -5,8 +5,11 @@ const emailController = require('../controllers/emailController');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('index');
+  const successMessage = req.cookies.successMessage || null;
+  res.clearCookie('successMessage');
+  res.render('index', { successMessage, errorMessage: null });
 });
+
 
 router.post('/send-email', uploadMiddleware, emailController.sendEmail);
 

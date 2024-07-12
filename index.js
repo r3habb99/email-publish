@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const emailRoutes = require('./src/routes/email.routes');
 const logger = require('./src/utils/logger');
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +12,7 @@ const PROTOCOL = process.env.PROTOCOL || 'http://localhost';
 app.set('view engine', 'ejs');
 app.use(express.static('views'));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use('/', emailRoutes);
 

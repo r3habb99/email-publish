@@ -29,7 +29,11 @@ const sendEmail = async (req, res) => {
 
     logger.info('Emails sent successfully');
     const successMessage = 'Emails sent successfully!';
-    return res.render('index', { successMessage, errorMessage: null }); // Render index.ejs with successMessage
+
+    // Store the success message in a cookie
+    res.cookie('successMessage', successMessage, { path: '/' });
+
+    return res.render('index', { successMessage: null, errorMessage: null }); // Render index.ejs without messages
   } catch (error) {
     logger.error('Failed to send emails: ' + error.message);
     const errorMessage =
